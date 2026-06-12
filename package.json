@@ -1,0 +1,13 @@
+{
+  "name": "noi-wiki-pages",
+  "version": "1.0.0",
+  "description": "面向青少年 NOI 选手的结构化备赛学习系统",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

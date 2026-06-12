@@ -1,0 +1,176 @@
+/* ===========================================================
+   NEO CODE — VitePress 品牌主题
+   极客绿 + 深靛 · Space Grotesk / Space Mono
+   放到  docs/.vitepress/theme/custom.css
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ---------- 字体 ---------- */
+:root {
+  --vp-font-family-base: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system,
+                         'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --vp-font-family-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo,
+                         Monaco, Consolas, monospace;
+}
+
+/* ===========================================================
+   亮色模式
+   =========================================================== */
+:root {
+  /* 品牌主色阶 —— brand-1 用于链接文字(需对比度), brand-3 用于实心按钮 */
+  --vp-c-brand-1: #0B8A4F;   /* 链接 / 强调文字 (AA on white) */
+  --vp-c-brand-2: #0E9E57;   /* hover */
+  --vp-c-brand-3: #12C06A;   /* 实心按钮 / 品牌绿 */
+  --vp-c-brand-soft: rgba(18, 192, 106, 0.14);
+
+  /* 深靛作为次级强调 */
+  --neo-indigo: #1E2A78;
+  --neo-green: #12C06A;
+  --neo-ink: #13231C;
+
+  /* 背景 */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #F4F6F2;       /* 暖白 —— 侧栏 / 代码区底 */
+  --vp-c-bg-soft: #F4F6F2;
+  --vp-c-bg-elv: #ffffff;
+
+  /* 文字 */
+  --vp-c-text-1: #13231C;       /* 墨绿黑 */
+  --vp-c-text-2: #4B5650;
+  --vp-c-text-3: #7E887F;
+
+  /* 分割线 */
+  --vp-c-divider: #E2E6DD;
+  --vp-c-border: #E2E6DD;
+  --vp-c-gutter: #E2E6DD;
+
+  /* 按钮 */
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-active-text: #ffffff;
+
+  /* 首页 Hero —— 字体绿→靛渐变, 光晕用品牌绿 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #12C06A 30%, #1E2A78);
+  --vp-home-hero-image-background-image: linear-gradient(45deg, rgba(18,192,106,0.25), rgba(30,42,120,0.25));
+  --vp-home-hero-image-filter: blur(48px);
+}
+
+/* ===========================================================
+   深色模式 —— 以墨绿黑为底, 与品牌一致
+   =========================================================== */
+.dark {
+  --vp-c-brand-1: #38D588;   /* 亮绿 链接 */
+  --vp-c-brand-2: #2FCD7F;
+  --vp-c-brand-3: #12C06A;
+  --vp-c-brand-soft: rgba(18, 192, 106, 0.16);
+
+  --vp-c-bg: #13231C;        /* 墨绿黑 */
+  --vp-c-bg-alt: #0E1B15;    /* 更深 */
+  --vp-c-bg-soft: #1A2E24;
+  --vp-c-bg-elv: #1A2E24;
+
+  --vp-c-text-1: #F4F6F2;    /* 暖白 */
+  --vp-c-text-2: #B9C4BD;
+  --vp-c-text-3: #7E8C82;
+
+  --vp-c-divider: #25382E;
+  --vp-c-border: #25382E;
+  --vp-c-gutter: #0E1B15;
+
+  --vp-button-brand-text: #0A1410;
+  --vp-button-brand-hover-text: #0A1410;
+  --vp-button-brand-active-text: #0A1410;
+
+  --vp-home-hero-name-background: linear-gradient(120deg, #38D588 30%, #7E8CF0);
+  --vp-home-hero-image-background-image: linear-gradient(45deg, rgba(18,192,106,0.3), rgba(30,42,120,0.4));
+}
+
+/* ===========================================================
+   细节强化
+   =========================================================== */
+
+/* 顶部导航品牌名 */
+.VPNavBarTitle .title {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* 站点 logo 旁加一个终端光标的呼吸感(可选) */
+.VPNavBarTitle .title::after {
+  content: '_';
+  color: var(--vp-c-brand-3);
+  font-family: var(--vp-font-family-mono);
+  font-weight: 700;
+  margin-left: 1px;
+  animation: neo-blink 1.2s step-end infinite;
+}
+@keyframes neo-blink { 0%, 48% { opacity: 1; } 49%, 100% { opacity: 0; } }
+
+/* 标题字重 / 字距 */
+.vp-doc h1, .vp-doc h2, .vp-doc h3 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.vp-doc h2 {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+}
+
+/* 侧栏激活项 —— 品牌绿竖条 */
+.VPSidebarItem.is-active > .item .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* 行内代码 —— 暖白底 + 绿字 */
+.vp-doc :not(pre) > code {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 0.85em;
+  border-radius: 5px;
+}
+
+/* 链接下划线动画 */
+.vp-doc a {
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+
+/* 自定义容器 tip —— 用品牌绿 */
+.custom-block.tip {
+  border-color: var(--vp-c-brand-3);
+  background-color: var(--vp-c-brand-soft);
+}
+.custom-block.tip .custom-block-title {
+  color: var(--vp-c-brand-1);
+}
+
+/* info 容器 —— 用深靛 */
+.custom-block.info {
+  border-color: var(--neo-indigo);
+  background-color: rgba(30, 42, 120, 0.08);
+}
+.dark .custom-block.info {
+  background-color: rgba(126, 140, 240, 0.12);
+  border-color: #7E8CF0;
+}
+
+/* 按钮圆角更克制 */
+.VPButton { border-radius: 10px; font-weight: 600; }
+
+/* 代码块圆角 */
+.vp-doc div[class*='language-'] { border-radius: 12px; }
+
+/* 选中文字高亮 */
+::selection { background: rgba(18, 192, 106, 0.28); }
+
+html {
+  scroll-behavior: smooth;
+}
